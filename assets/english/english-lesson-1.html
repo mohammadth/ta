@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإنجليزية - الأبجدية والنطق</title>
+    <style>
+        :root {
+            --primary: #FDCB6E;
+            --secondary: #E17055;
+            --dark: #2D3436;
+            --light: #F5F6FA;
+            --bg-gradient: linear-gradient(135deg, #FDCB6E 0%, #E17055 100%);
+            --card-shadow: 0 10px 30px rgba(253, 203, 110, 0.3);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* زر العودة */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* رأس الصفحة */
+        .lesson-header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .lesson-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .lesson-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* محتوى الدرس */
+        .lesson-content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .lesson-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-right: 4px solid var(--primary);
+            padding-right: 15px;
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .example {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-right: 3px solid var(--primary);
+        }
+
+        .example-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .alphabet-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .alphabet-card {
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .pronunciation {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            color: #f0f0f0;
+        }
+
+        /* أزرار التنقل */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary);
+            box-shadow: 0 8px 15px rgba(253, 203, 110, 0.3);
+        }
+
+        /* للجوال */
+        @media (max-width: 768px) {
+            .lesson-title {
+                font-size: 1.8rem;
+            }
+            
+            .lesson-content {
+                padding: 25px;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+            
+            .alphabet-container {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- زر العودة -->
+    <a href="english.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- رأس الدرس -->
+    <div class="lesson-header">
+        <div class="container">
+            <h1 class="lesson-title">الأبجدية والنطق</h1>
+            <p class="lesson-subtitle">الدرس الأول من سلسلة دروس الإنجليزية - تعلم الحروف والنطق الصحيح</p>
+        </div>
+    </div>
+
+    <!-- محتوى الدرس -->
+    <div class="container">
+        <div class="lesson-content">
+            <div class="lesson-section">
+                <h2 class="section-title">الحروف الإنجليزية</h2>
+                <div class="section-content">
+                    <p>تتكون الأبجدية الإنجليزية من 26 حرفاً، مقسمة إلى حروف كبيرة (Capital) وصغيرة (Small).</p>
+                    
+                    <div class="alphabet-container">
+                        <div class="alphabet-card">
+                            A a
+                            <div class="pronunciation">(إي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            B b
+                            <div class="pronunciation">(بي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            C c
+                            <div class="pronunciation">(سي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            D d
+                            <div class="pronunciation">(دي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            E e
+                            <div class="pronunciation">(إي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            F f
+                            <div class="pronunciation">(إف)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            G g
+                            <div class="pronunciation">(جي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            H h
+                            <div class="pronunciation">(إتش)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            I i
+                            <div class="pronunciation">(آي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            J j
+                            <div class="pronunciation">(جاي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            K k
+                            <div class="pronunciation">(كاي)</div>
+                        </div>
+                        <div class="alphabet-card">
+                            L l
+                            <div class="pronunciation">(إل)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lesson-section">
+                <h2 class="section-title">أصوات الحروف</h2>
+                <div class="section-content">
+                    <p>كل حرف في الإنجليزية له صوت خاص به، وقد يختلف نطق الحرف حسب موقعه في الكلمة.</p>
+                    
+                    <div class="example">
+                        <div class="example-title">أمثلة على نطق الحروف:</div>
+                        <p>
+                            - حرف A ينطق "إي" في كلمة "Apple" (تفاحة)<br>
+                            - حرف B ينطق "بي" في كلمة "Ball" (كرة)<br>
+                            - حرف C ينطق "سي" في كلمة "Cat" (قطة)<br>
+                            - حرف D ينطق "دي" في كلمة "Dog" (كلب)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lesson-section">
+                <h2 class="section-title">الحروف المتحركة والساكنة</h2>
+                <div class="section-content">
+                    <p>الحروف المتحركة (Vowels) في الإنجليزية هي: A, E, I, O, U</p>
+                    <p>أما باقي الحروف فهي ساكنة (Consonants)</p>
+                    
+                    <div class="example">
+                        <div class="example-title">مثال:</div>
+                        <p>كلمة "English" تحتوي على حرفين متحركين (E, I) وأربعة حروف ساكنة (N, G, L, S, H)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- أزرار التنقل -->
+        <div class="nav-buttons">
+            <a href="#" class="nav-btn" style="visibility: hidden;">
+                <i class="fas fa-arrow-right"></i> السابق
+            </a>
+            <a href="english-lesson-2.html" class="nav-btn">
+                التالي <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // منع menu context (النقر بزر الماوس الأيمن)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع الضغط الطويل
+        document.addEventListener('mousedown', function(e) {
+            if (e.button === 0) { // زر الماوس الأيسر فقط
+                e.preventDefault();
+            }
+        });
+        
+        // منع التحديد عبر اللمس (لأجهزة اللمس)
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع التحديد عبر السحب
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع اختصار Ctrl+A و Ctrl+C
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.keyCode === 65 || e.keyCode === 67)) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

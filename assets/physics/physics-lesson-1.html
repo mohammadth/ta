@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفيزياء - الميكانيكا الكلاسيكية</title>
+    <style>
+        :root {
+            --primary: #0984E3;
+            --secondary: #0767B2;
+            --dark: #2D3436;
+            --light: #F5F6FA;
+            --bg-gradient: linear-gradient(135deg, #0984E3 0%, #0767B2 100%);
+            --card-shadow: 0 10px 30px rgba(9, 132, 227, 0.3);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* زر العودة */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* رأس الصفحة */
+        .lesson-header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .lesson-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .lesson-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* محتوى الدرس */
+        .lesson-content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .lesson-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-right: 4px solid var(--primary);
+            padding-right: 15px;
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .example {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-right: 3px solid var(--primary);
+        }
+
+        .example-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* أزرار التنقل */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary);
+            box-shadow: 0 8px 15px rgba(9, 132, 227, 0.3);
+        }
+
+        /* للجوال */
+        @media (max-width: 768px) {
+            .lesson-title {
+                font-size: 1.8rem;
+            }
+            
+            .lesson-content {
+                padding: 25px;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- زر العودة -->
+    <a href="physics.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- رأس الدرس -->
+    <div class="lesson-header">
+        <div class="container">
+            <h1 class="lesson-title">الميكانيكا الكلاسيكية</h1>
+            <p class="lesson-subtitle">الدرس الأول من سلسلة دروس الفيزياء - قوانين الحركة الأساسية</p>
+        </div>
+    </div>
+
+    <!-- محتوى الدرس -->
+    <div class="container">
+        <div class="lesson-content">
+            <div class="lesson-section">
+                <h2 class="section-title">قوانين نيوتن للحركة</h2>
+                <div class="section-content">
+                    <p>قوانين نيوتن للحركة هي ثلاثة قوانين فيزيائية تأسس علم حركة الأجسام، وتربط هذه القوانين القوى المؤثرة على الجسم بحركته.</p>
+                    
+                    <div class="example">
+                        <div class="example-title">القانون الأول (قانون القصور الذاتي):</div>
+                        <p>يظل الجسم في حالته الساكنة أو المتحركة بسرعة ثابتة في خط مستقيم ما لم تؤثر عليه قوة خارجية.</p>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">القانون الثاني:</div>
+                        <p>تسارع الجسم يتناسب طرديًا مع القوة المحصلة المؤثرة عليه، وعكسيًا مع كتلته (F = ma).</p>
+                    </div>
+                    
+                    <div class="example">
+                        <div class="example-title">القانون الثالث (الفعل ورد الفعل):</div>
+                        <p>لكل فعل رد فعل مساوٍ له في المقدار ومعاكس له في الاتجاه.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lesson-section">
+                <h2 class="section-title">الحركة في بعد واحد</h2>
+                <div class="section-content">
+                    <p>الحركة في خط مستقيم توصف بثلاث كميات رئيسية: الإزاحة، السرعة، والتسارع.</p>
+                    
+                    <div class="example">
+                        <div class="example-title">المعادلات الأساسية:</div>
+                        <p>
+                            1. السرعة المتوسطة = الإزاحة / الزمن<br>
+                            2. التسارع = التغير في السرعة / الزمن<br>
+                            3. الإزاحة = السرعة الابتدائية × الزمن + ½ × التسارع × الزمن²<br>
+                            4. السرعة النهائية² = السرعة الابتدائية² + 2 × التسارع × الإزاحة
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lesson-section">
+                <h2 class="section-title">الطاقة الحركية والعمل</h2>
+                <div class="section-content">
+                    <p>الطاقة الحركية هي الطاقة التي يكتسبها الجسم بسبب حركته، بينما العمل هو نقل الطاقة عن طريق تطبيق قوة.</p>
+                    
+                    <div class="example">
+                        <div class="example-title">المعادلات:</div>
+                        <p>
+                            1. الطاقة الحركية = ½ × الكتلة × السرعة²<br>
+                            2. العمل = القوة × الإزاحة × جيب تمام الزاوية بينهما<br>
+                            3. نظرية الشغل-الطاقة: الشغل الكلي = التغير في الطاقة الحركية
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // منع menu context (النقر بزر الماوس الأيمن)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع الضغط الطويل
+        document.addEventListener('mousedown', function(e) {
+            if (e.button === 0) { // زر الماوس الأيسر فقط
+                e.preventDefault();
+            }
+        });
+        
+        // منع التحديد عبر اللمس (لأجهزة اللمس)
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع التحديد عبر السحب
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع اختصار لوحة المفاتيح للحماية الإضافية
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+S
+            if ((e.ctrlKey || e.metaKey) && (e.keyCode === 65 || e.keyCode === 67 || e.keyCode === 88 || e.keyCode === 83)) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
