@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية التميز - تسجيل الدخول</title>
+    <style>
+
+        :root {
+            --primary: #6C5CE7;
+            --secondary: #5649D6;
+            --dark: #2D3436;
+            --light: #F5F6FA;
+            --bg-gradient: linear-gradient(135deg, #6C5CE7 0%, #5649D6 100%);
+            --card-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: #f8f9fa;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .login-header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .login-content {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 2px solid #eee;
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+            background-color: #f9f9f9;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            background: var(--bg-gradient);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .login-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* تأثيرات الحركة */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .login-icon {
+            font-size: 5rem;
+            color: white;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* تأثيرات للجوال */
+        @media (max-width: 768px) {
+            .login-title {
+                font-size: 1.8rem;
+            }
+            
+            .login-content {
+                padding: 30px;
+            }
+            
+            .form-input {
+                padding: 12px 18px;
+            }
+            
+            .login-btn {
+                padding: 14px;
+            }
+        }
+
+        /* تأثيرات الديكور */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .circle-1 {
+            width: 100px;
+            height: 100px;
+            top: -30px;
+            left: -30px;
+        }
+
+        .circle-2 {
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .circle-3 {
+            width: 150px;
+            height: 150px;
+            bottom: -50px;
+            right: -50px;
+            opacity: 0.2;
+        }
+
+        /* رسائل الخطأ */
+        .error-message {
+            color: #ff4757;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            text-align: right;
+            display: none;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+                <div class="login-icon"><i class="fas fa-user-graduate"></i></div>
+                <h1 class="login-title">TA ACADEMY</h1>
+                <p class="login-subtitle">سجل دخولك للوصول إلى منصتنا التعليمية المتكاملة</p>
+            </div>
+            
+            <div class="login-content">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username" class="form-label">اسم المستخدم</label>
+                        <input type="text" id="username" class="form-input" placeholder="أدخل اسم المستخدم" required autofocus>
+                        <div id="errorMessage" class="error-message"></div>
+                    </div>
+                    
+                    <button type="submit" class="login-btn" id="submitBtn">
+                        <span id="btnText">تسجيل الدخول</span>
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    ليس لديك حساب؟ <a href="#" onclick="contactAdmin()">تواصل مع المسؤول</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            
+            if (username) {
+                try {
+                    AndroidBridge.performLogin(username);
+                } catch (e) {
+                    alert("حدث خطأ في الاتصال بالتطبيق");
+                    console.error(e);
+                }
+            } else {
+                document.getElementById('errorMessage').textContent = 'يجب إدخال اسم المستخدم';
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+
+        function contactAdmin() {
+            try {
+                AndroidBridge.contactAdmin();
+            } catch (e) {
+                window.open('https://wa.me/+963954294370', '_blank');
+            }
+        }
+    </script>
+</body>
+</html>

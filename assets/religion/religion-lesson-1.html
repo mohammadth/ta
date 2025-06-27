@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التربية الدينية - شرح مفردات الآيات والأحاديث</title>
+    <style>
+        :root {
+            --primary: #6C5CE7;
+            --secondary: #5649D6;
+            --dark: #2D3436;
+            --light: #F5F6FA;
+            --bg-gradient: linear-gradient(135deg, #6C5CE7 0%, #5649D6 100%);
+            --card-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            min-height: 100vh;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* زر العودة */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* رأس الصفحة */
+        .lesson-header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .lesson-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .lesson-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* محتوى الدرس */
+        .lesson-content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .lesson-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-right: 4px solid var(--primary);
+            padding-right: 15px;
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .vocab-item {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-right: 3px solid var(--primary);
+        }
+
+        .vocab-term {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vocab-icon {
+            font-size: 1.2rem;
+        }
+
+        .question-list {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .question-item {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-right: 3px solid var(--secondary);
+        }
+
+        .question-text {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .answer-list {
+            list-style-type: none;
+            padding-right: 15px;
+        }
+
+        .answer-item {
+            margin-bottom: 8px;
+            position: relative;
+            padding-right: 15px;
+        }
+
+        .answer-item::before {
+            content: "-";
+            position: absolute;
+            right: 0;
+        }
+
+        /* أزرار التنقل */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary);
+            box-shadow: 0 8px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        /* للجوال */
+        @media (max-width: 768px) {
+            .lesson-title {
+                font-size: 1.8rem;
+            }
+            
+            .lesson-content {
+                padding: 25px;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- زر العودة -->
+    <a href="religion.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- رأس الدرس -->
+    <div class="lesson-header">
+        <div class="container">
+            <h1 class="lesson-title">شرح مفردات الآيات والأحاديث</h1>
+            <p class="lesson-subtitle">درس التربية الدينية - شرح المفردات الشرعية</p>
+        </div>
+    </div>
+
+    <!-- محتوى الدرس -->
+    <div class="container">
+        <div class="lesson-content">
+            <div class="lesson-section">
+                <h2 class="section-title">المفردات الشرعية</h2>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-sun pillar-icon"></i>
+                        نور السماوات والأرض
+                    </h3>
+                    <p>منورهما بما فيهما من دقة وإبداع</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-lightbulb pillar-icon"></i>
+                        كمشكاة
+                    </h3>
+                    <p>كوة في الجدار يوضع فيها السراج</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-gem pillar-icon"></i>
+                        درّي
+                    </h3>
+                    <p>متلألئ، كالدر لشدة ضيائه ولمعانه</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-compass pillar-icon"></i>
+                        لا شرقية ولا غربية
+                    </h3>
+                    <p>يصلها ضياء الشمس طيلة النهار</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-hands-helping pillar-icon"></i>
+                        القائم
+                    </h3>
+                    <p>الداعي إلى فعل الخير</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-ban pillar-icon"></i>
+                        حدود الله
+                    </h3>
+                    <p>محارمه</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-exclamation-triangle pillar-icon"></i>
+                        الواقع فيها
+                    </h3>
+                    <p>مرتكب الكبيرة</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-random pillar-icon"></i>
+                        استهموا
+                    </h3>
+                    <p>اتخذ كل واحد نصيبه من القرعة</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-hand-paper pillar-icon"></i>
+                        أخذوا على أيديهم
+                    </h3>
+                    <p>منعوهم</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-times-circle pillar-icon"></i>
+                        لا يجزي
+                    </h3>
+                    <p>لا ينفع</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-mask pillar-icon"></i>
+                        الغرور
+                    </h3>
+                    <p>كل ما يخدع الإنسان من مال أو جاه أو غيرهما</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-star pillar-icon"></i>
+                        الحسنى
+                    </h3>
+                    <p>المنزلة الرفيعة</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-fire pillar-icon"></i>
+                        حسيسها
+                    </h3>
+                    <p>صوت النار</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-infinity pillar-icon"></i>
+                        خالدون
+                    </h3>
+                    <p>مقيمون أبداً</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-exclamation pillar-icon"></i>
+                        الفزع الأكبر
+                    </h3>
+                    <p>يوم القيامة</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-angel pillar-icon"></i>
+                        تتلقاهم
+                    </h3>
+                    <p>تستقبلهم وتبشرهم</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-pen-fancy pillar-icon"></i>
+                        كتبنا
+                    </h3>
+                    <p>قضينا</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-book pillar-icon"></i>
+                        الزّبور
+                    </h3>
+                    <p>الكتاب الذي أنزل على سيدنا داود عليه السلام</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-tablet-alt pillar-icon"></i>
+                        الذكر
+                    </h3>
+                    <p>اللوح المحفوظ</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-flag pillar-icon"></i>
+                        يرثها
+                    </h3>
+                    <p>يعمرها ويسودها</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-user-check pillar-icon"></i>
+                        الصالحون
+                    </h3>
+                    <p>المؤمنون بالله والملتزمون بأوامره</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-question-circle pillar-icon"></i>
+                        مشبّهات
+                    </h3>
+                    <p>أمور لم يتضح حكمها</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-shield-alt pillar-icon"></i>
+                        استبرأ لدينه وعرضه
+                    </h3>
+                    <p>سلم من الذنوب وصان نفسه عن كلام الناس</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-skull-crossbones pillar-icon"></i>
+                        يرتع فيه
+                    </h3>
+                    <p>يقع في الحرام</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-stop-circle pillar-icon"></i>
+                        حمى الله
+                    </h3>
+                    <p>الأمور التي نهى الله عنها</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-running pillar-icon"></i>
+                        سارعوا
+                    </h3>
+                    <p>بادروا</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-eraser pillar-icon"></i>
+                        مغفرة
+                    </h3>
+                    <p>عدم المؤاخذة على الإثم</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-user-shield pillar-icon"></i>
+                        للمتقين
+                    </h3>
+                    <p>الذين امتثلوا أوامر الله واجتنبوا نواهيه</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-laugh-beam pillar-icon"></i>
+                        السراء
+                    </h3>
+                    <p>الرخاء</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-sad-tear pillar-icon"></i>
+                        الضراء
+                    </h3>
+                    <p>الشدة والضيق</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-angry pillar-icon"></i>
+                        الكاظمين الغيظ
+                    </h3>
+                    <p>المالكين أنفسهم عند الغضب</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-heart pillar-icon"></i>
+                        العافين عن الناس
+                    </h3>
+                    <p>المتجاوزين عمن أساء إليهم</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-hands-helping pillar-icon"></i>
+                        المحسنين
+                    </h3>
+                    <p>المراقبين الله تعالى في كل أحوالهم</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-user-tie pillar-icon"></i>
+                        الإمام
+                    </h3>
+                    <p>كل من أوكل إليه رعاية مصالح الناس</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-user-shield pillar-icon"></i>
+                        راع
+                    </h3>
+                    <p>مؤتمن</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-gavel pillar-icon"></i>
+                        مسؤول
+                    </h3>
+                    <p>محاسب</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-exclamation-triangle pillar-icon"></i>
+                        الفواحش
+                    </h3>
+                    <p>كل قبيح من قول أو عمل</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-balance-scale-right pillar-icon"></i>
+                        البغي
+                    </h3>
+                    <p>الظلم وتجاوز الحد</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-gavel pillar-icon"></i>
+                        سلطاناً
+                    </h3>
+                    <p>حجة</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-comment-slash pillar-icon"></i>
+                        أن تقولوا على الله ما لا تعلمون
+                    </h3>
+                    <p>إطلاق الأحكام بلا علم أو دليل</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-shapes pillar-icon"></i>
+                        الاشراك بالله
+                    </h3>
+                    <p>اتخاذ شريك مع الله تعالى</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-skull-crossbones pillar-icon"></i>
+                        الكبائر
+                    </h3>
+                    <p>الذنوب العظيمة</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-user-times pillar-icon"></i>
+                        عقوق الوالدين
+                    </h3>
+                    <p>الإساءة إليهما وعدم برهما</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-comment-dots pillar-icon"></i>
+                        الزور
+                    </h3>
+                    <p>الكذب</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-walking pillar-icon"></i>
+                        نأى
+                    </h3>
+                    <p>ابتعد</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-sad-cry pillar-icon"></i>
+                        يؤوساً
+                    </h3>
+                    <p>شديد اليأس منقطع الأمل</p>
+                </div>
+                
+                <div class="vocab-item">
+                    <h3 class="vocab-term">
+                        <i class="fas fa-road pillar-icon"></i>
+                        شاكلته
+                    </h3>
+                    <p>طريقته</p>
+                </div>
+            </div>
+            
+            <div class="lesson-section">
+                <h2 class="section-title">أسئلة التركيب القرآني والعبارة من الحديث</h2>
+                
+                <ul class="question-list">
+                    <li class="question-item">
+                        <div class="question-text">هداية الله تعالى للإنسان مضاعفة ومستقرة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«نور على نور»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">التوفيق للإنسان إلى الإيمان لمن أراد الهداية</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«يهدي الله لنوره من يشاء»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">تصوير المعاني المعقولة بصور محسوسة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«ويضرب الله الأمثال للناس»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">الله تعالى عالماً علماً شاملاً بكل الأشياء المادية والمعنوية الظاهرة والباطنة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«والله بكل شيء عليم»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">الأمر بتقوى الله تعالى</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«يا أيها الناس اتقوا ربكم»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">التذكير بيوم الحساب حيث لا ينفع فيه نسب ولا قرابة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«واخشوا يوماً لا يجزي والد عن ولده ولا مولود هو جاز عن والده شيئاً»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">يوم القيامة آت لا ريب فيه</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«إن وعد الله حق»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">التحذير من الاشتغال في الدنيا مع الإعراض عن الآخرة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«فلا تغرنّكم الحياة الدنيا»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">التحذير من المغريات التي تزين الشر</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«ولا يغرنكم بالله الغرور»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">وقت قيام الساعة وما يقع فيها من أحداث</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«إن الله عنده علم الساعة»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">معرفة وقت نزول المطر ومكان نزوله</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«وينزل الغيث»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">أحوال الأجنة من حيث النوع والاكتمال وما ستكون عليه من سعادة أو شقاء</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«ويعلم ما في الأرحام»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">ما يعمله الإنسان في مستقبله من خير أو شر وما يكسبه الإنسان من رزق قليل أو كثير</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«وما تدري نفس ماذا تكسب غداً»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">لا تعلم نفس مكان موتها وكيفية الموت وزمانه</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«وما تدري نفس بأي أرض تموت»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">الإقامة الدائمة فيما يشتهون من نعيم الجنة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«وهم فيما اشتهت أنفسهم خالدون»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">عدم القلق مما يفزع الناس يوم القيامة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«لا يحزنهم الفزع الأكبر»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">استقبال الملائكة لهم وبشارتهم بالكرامة وجزيل الثواب الذي وعدهم به الله</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«وتتلقاهم الملائكة هذا يومكم الذي كنتم توعدون»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">طي السماء كما تطوى الصحيفة للكتابة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«يوم نطوي السماء كطي السجل للكتب»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">إعادة الخلائق على هيئتها في الدنيا</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«كما بدأنا أول خلق نعيده»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">الله تعالى لا يخلف وعده ويفعل ما يريد</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«وعداً علينا إنا كنا فاعلين»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">المبادرة إلى الأعمال الصالحة التي أجزل الله ثوابها</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">«سارعوا إلى مغفرة من ربكم»</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">أعد الله الثواب العظيم للمتقين</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(وجنة عرضها السماوات والأرض)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">الإنفاق في الشدة والرخاء</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(الذين ينفقون في السراء والضراء)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">كتم الغضب مع القدرة على إنفاذه</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(والكاظمين الغيظ)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">التجاوز عن الإساءة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(والعافين عن الناس)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">محبة الله لمن يقابلون الإساءة بالإحسان</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(والله يحب المحسنين)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">التوبة والاستغفار عند ارتكاب المعصية</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(والذين إذا فعلوا فاحشة أو ظلموا أنفسهم ذكروا الله فاستغفروا لذنوبهم)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">من فضل الله وإحسانه أنه يعفو عن المسيء</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(ومن يغفر الذنوب إلا الله)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">عدم الإصرار على الغلط</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(ولم يصروا على ما فعلوا وهم يعلمون)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">الخلود في الجنة للمتقين</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(أولئك جزاؤهم مغفرة من ربهم وجنات تجري من تحتها الأنهار خالدين فيها ونعم أجر العاملين)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">إنكار الله تعالى على الذين يحرمون المباحات</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(قل من حرم زينة الله التي أخرج لعباده والطيبات من الرزق)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">الزينة والطيبات في الدنيا للناس كلهم</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(قل هي للذين آمنوا في الحياة الدنيا خالصة يوم القيامة)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">تفصيل الله تعالى الأحكام لأهل العلم والمعرفة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(كذلك نفصل الآيات لقوم يعلمون)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">امتثال آيات القرآن سلوكاً يقي الإنسان من آثار الحقد والحسد وغيرهما</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(وننزل من القرآن ما هو شفاء ورحمة للمؤمنين)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">خسارة المعرضين عن منهج القرآن الكريم</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(ولا يزيد الظالمين إلا خساراً)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">استكبار المنعم عليه والقنوط من الخير لمن أصيب بمصيبة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(وإذا أنعمنا على الإنسان أعرض ونأى بجانبه وإذا مسه الشر كان يؤوساً)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">المؤمن لا يعرض عند النعمة ولا يصيبه اليأس عند المحنة</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">(قل كل يعمل على شاكلته فربكم أعلم بمن هو أهدى سبيلاً)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="lesson-section">
+                <h2 class="section-title">أسئلة القيمة والسلوك المستفادة</h2>
+                
+                <ul class="question-list">
+                    <li class="question-item">
+                        <div class="question-text">«يا أيها الناس اتقوا ربكم»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">ألتزم أوامر الله تعالى واجتنب نواهيه</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«واخشوا يوماً لا يجزي والد عن ولده ولا مولود هو جاز عن والده شيئاً»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">أتقي الله وأتقن عملي</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«إن وعد الله حق»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">أتزود ليوم القيامة بالطاعة والعمل الصالح</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«فلا تغرنكم الحياة الدنيا»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">أوزن بين متطلبات الدنيا وأستعد للآخرة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«ولا يغرنكم بالله الغرور»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">أبتعد عن الاغترار بالدنيا وزخارفها وأجعل العمل للآخرة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«ومن يتق الله يجعل له مخرجاً ويرزقه من حيث لا يحتسب»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الخلاص من هموم الدنيا والنجاة في الآخرة، التوسعة في الرزق من حيث لا يتوقع العبد</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«ومن يتق الله يكفر عن سيئاته ويعظم له أجراً»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">محو السيئات – الأجر والثواب العظيم</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«إن للمتقين عند ربهم جنات النعيم»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الفوز بدخول الجنة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«إن الله يحب المتقين»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الفوز بمحبة الله ورضوانه</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«ومن خشي الرحمن بالغيب وجاء بقلب منيب»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الإنابة إلى الله</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«الذين آمنوا وتطمئن قلوبهم بذكر الله»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">السكينة والاطمئنان</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«ثم قست قلوبكم من بعد ذلك فهي كالحجارة أو أشد قسوة»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">قسوة القلب</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«إن الله لا ينظر إلى أجسادكم ولا إلى صوركم ولكن ينظر إلى قلوبكم»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الإخلاص</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«وسارعوا إلى مغفرة من ربكم»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">المغفرة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«وجنة عرضها السماوات والأرض أعدت للمتقين»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الجزاء الأوفى</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«الذين ينفقون في السراء والضراء»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الإنفاق والكرم</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«والكاظمين الغيظ»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الحلم</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«والعافين عن الناس»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">العفو عند المقدرة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«والله يحب المحسنين»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الإحسان</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«فمن عفى وأصلح فأجره على الله»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">العفو والإصلاح</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«ولا تستوي الحسنة ولا السيئة ادفع بالتي هي أحسن»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الإحسان</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">«وما تنفقوا من خير يوف إليكم وأنتم لا تظلمون»</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الإنفاق</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">(وإذا ما غضبوا هم يغفرون)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الحلم</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">(يا بني آدم خذوا زينتكم عند كل مسجد)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">العناية بالمظهر</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">(وكلوا واشربوا ولا تسرفوا إنه لا يحب المسرفين)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الاعتدال والتوازن</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">(قل من حرم زينة الله التي أخرج لعباده والطيبات من الرزق)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">عدم تحريم الحلال</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">(قل هي للذين آمنوا في الحياة الدنيا خالصة يوم القيامة)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">التزام الطيبات في الدنيا</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">(كذلك نفصل الآيات لقوم يعلمون)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">إعمال العقل بالفكر والتدبير</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">(وننزل من القرآن ما هو شفاء ورحمة للمؤمنين)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الشفاء والرحمة للمؤمنين</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">(ولا يزيد الظالمين إلا خساراً)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">الخسارة للمعرضين عن كتاب الله</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="lesson-section">
+                <h2 class="section-title">أسئلة الحفظ والتذكر</h2>
+                
+                <ul class="question-list">
+                    <li class="question-item">
+                        <div class="question-text">1- اذكر أنواع النور مع مثال؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">النور الحسي: مثال ضوء الشمس أو الضوء الذي صنعه الإنسان</li>
+                            <li class="answer-item">النور المعنوي: مثال الوحي والإلهام، الهداية والرشاد، العلم والمعرفة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">2- اذكر آثار تحمل المسؤولية على الفرد والمجتمع؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">على الفرد: انتشار الثقة والمودة بين الناس وحفظ الحقوق</li>
+                            <li class="answer-item">على المجتمع: انتشار العدل ورقي المجتمع وازدهاره</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">3- اذكر ثلاثة من الحقوق الإنسانية؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- حق الحياة وعصمة الدماء</li>
+                            <li class="answer-item">2- حق الأمن والأمان</li>
+                            <li class="answer-item">3- حق حرية التفكير والتعبير</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">4- اذكر عناصر المواطنة؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الوطن</li>
+                            <li class="answer-item">2- المواطن</li>
+                            <li class="answer-item">3- حب الوطن (الوطنية)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">5- اذكر صور المواطنة؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- سلبية عندما لا يؤدي الإنسان دوره في خدمة وطنه ومجتمعه</li>
+                            <li class="answer-item">2- إيجابية عندما يؤدي الفرد دوره في خدمة وطنه ومجتمعه</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">6- اذكر حقوق المواطنة؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الحياة</li>
+                            <li class="answer-item">2- التكريم</li>
+                            <li class="answer-item">3- الاعتقاد</li>
+                            <li class="answer-item">4- التملك</li>
+                            <li class="answer-item">5- العمل</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">7- اذكر مقومات المواطنة مع مثال؟ (سؤال موازنة دورة 2020)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الانتماء: فخر الإنسان بانتمائه لوطنه</li>
+                            <li class="answer-item">2- الحقوق: حق الحياة</li>
+                            <li class="answer-item">3- الواجبات: الدفاع عن الوطن</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">8- اذكر قيم المواطنة؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الوسطية والاعتدال</li>
+                            <li class="answer-item">2- التعايش السلمي</li>
+                            <li class="answer-item">3- الأخلاق الفاضلة</li>
+                            <li class="answer-item">4- الدفاع عن الوطن في أوقات السلم والحرب</li>
+                            <li class="answer-item">5- الحفاظ على البيئة</li>
+                            <li class="answer-item">6- الحفاظ على الموارد المائية</li>
+                            <li class="answer-item">7- تنمية روح المحبة والإيثار</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">9- اذكر ضوابط الكسب المشروع؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- البعد عن الجهالة والخداع</li>
+                            <li class="answer-item">2- تجنب الطرق غير المشروعة</li>
+                            <li class="answer-item">3- عدم إلحاق الأذى بأحد</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">10- اذكر أنواع الشركة؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- المضاربة</li>
+                            <li class="answer-item">2- الأموال</li>
+                            <li class="answer-item">3- الأعمال</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">11- اذكر أنواع معاصرة للشركة؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الشركة القابضة</li>
+                            <li class="answer-item">2- شركة التضامن</li>
+                            <li class="answer-item">3- شركة المساهمة</li>
+                            <li class="answer-item">4- الشركة العائلية</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">12- اذكر ثلاث ثمرات للتقوى؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الخلاص من هموم الدنيا والنجاة في الآخرة</li>
+                            <li class="answer-item">2- محبة الله تعالى ورضوانه</li>
+                            <li class="answer-item">3- محو السيئات والأجر العظيم</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">13- اذكر حقوق الآباء على الأبناء؟ (في حياتهما)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الطاعة بالمعروف</li>
+                            <li class="answer-item">2- الإحسان إليهما</li>
+                            <li class="answer-item">3- الدعاء لهما</li>
+                            <li class="answer-item">4- الشكر لهما</li>
+                            <li class="answer-item">5- التواضع لهما</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">14- اذكر حقوق الآباء على الأبناء؟ (بعد موتهما)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الدعاء لهما</li>
+                            <li class="answer-item">2- الاستغفار لهما</li>
+                            <li class="answer-item">3- إنفاذ عهدهما</li>
+                            <li class="answer-item">4- صلة رحمهما</li>
+                            <li class="answer-item">5- إكرام صديقهما</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">15- اذكر حقوق الأبناء على الآباء؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- التربية الصالحة</li>
+                            <li class="answer-item">2- العدل بين الأولاد</li>
+                            <li class="answer-item">3- النفقة</li>
+                            <li class="answer-item">4- التعليم</li>
+                            <li class="answer-item">5- الحضانة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">16- اذكر أشكال التطرف؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- التطرف الفكري</li>
+                            <li class="answer-item">2- التطرف الديني</li>
+                            <li class="answer-item">3- التطرف السلوكي</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">17- اذكر مراحل تشكل الإرهاب؟ (بالترتيب)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- سوء الظن بالآخرين والنظر إليهم نظرة تشاؤمية</li>
+                            <li class="answer-item">2- التركيز على الفروع دون الأصول</li>
+                            <li class="answer-item">3- إصدار الأحكام المتشددة على ترك الفروع</li>
+                            <li class="answer-item">4- التعصب للرأي ورفض الآخر</li>
+                            <li class="answer-item">5- العنف</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">18- اذكر آثار التزام المال الحلال؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- استجابة الله للدعاء</li>
+                            <li class="answer-item">2- البركة في المال</li>
+                            <li class="answer-item">3- سلامة الدين والنفس والعرض</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">19- اذكر آثار الوقوع في الحرام؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- عدم استجابة الله تعالى للدعاء</li>
+                            <li class="answer-item">2- زوال البركة</li>
+                            <li class="answer-item">3- قسوة القلب والتخبط في السلوك وانتشار مساوئ الأخلاق</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">20- اذكر مصادر التشريع الأصلية؟ بالترتيب</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- القرآن الكريم</li>
+                            <li class="answer-item">2- السنة النبوية</li>
+                            <li class="answer-item">3- الإجماع</li>
+                            <li class="answer-item">4- القياس</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">21- اذكر أنواع الاستحسان؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الاستحسان بالنص</li>
+                            <li class="answer-item">2- الاستحسان بالإجماع</li>
+                            <li class="answer-item">3- الاستحسان بالعرف</li>
+                            <li class="answer-item">4- الاستحسان بالضرورة</li>
+                            <li class="answer-item">5- الاستحسان بالمصلحة</li>
+                            <li class="answer-item">6- الاستحسان بالقياس</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">22- اذكر صورتين من صور بيع النجش . ٢٠٢٤</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- البيع في المزاد</li>
+                            <li class="answer-item">2- وصف البائع السلعة بما ليس فيها</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">23- اذكر أنواع الربا؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- ربا بالديون ويشمل: ربا القرض وربا الدين</li>
+                            <li class="answer-item">2- ربا البيع ويشمل: ربا الفضل وربا النسيئة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">24- اذكر مخاطر عدم تحمل المسؤولية في حياة الفرد في مستقبل الوطن؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- في حياة الفرد: التهور والقلق وفقدان الثقة بالنفس وبالآخرين</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">25- اذكر شروط وجوب الحج؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الإسلام</li>
+                            <li class="answer-item">2- البلوغ</li>
+                            <li class="answer-item">3- العقل</li>
+                            <li class="answer-item">4- الاستطاعة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">26- اذكر أركان الحج؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الإحرام</li>
+                            <li class="answer-item">2- الوقوف بعرفة</li>
+                            <li class="answer-item">3- طواف الإفاضة</li>
+                            <li class="answer-item">4- السعي بين الصفا والمروة</li>
+                            <li class="answer-item">5- الحلق أو التقصير</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">27- اذكر واجبات الحج؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الإحرام من الميقات</li>
+                            <li class="answer-item">2- المبيت بمزدلفة</li>
+                            <li class="answer-item">3- رمي الجمارات</li>
+                            <li class="answer-item">4- المبيت بمنى (ليالي التشريق)</li>
+                            <li class="answer-item">5- طواف الوداع</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">28- اذكر سنن الحج؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الاغتسال للإحرام</li>
+                            <li class="answer-item">2- طواف القدوم</li>
+                            <li class="answer-item">3- ركعتا سنة الطواف</li>
+                            <li class="answer-item">4- المبيت بمنى يوم التروية (8 ذي الحجة)</li>
+                            <li class="answer-item">5- زيارة مسجد النبي صلى الله عليه وسلم</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">29- اذكر المواقيت المكانية وما هي جهة كل ميقات منها؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- ذو الحليفة للقادم من المدينة المنورة</li>
+                            <li class="answer-item">2- الجحفة للقادم من مصر والمغرب العربي</li>
+                            <li class="answer-item">3- ذات عرق للقادم من العراق والشرق</li>
+                            <li class="answer-item">4- قرن المنازل للقادم من نجد وما حولها</li>
+                            <li class="answer-item">5- يلملم للقادم من اليمن</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">30- اذكر أعمال العمرة؟ (بالترتيب)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الإحرام</li>
+                            <li class="answer-item">2- الطواف</li>
+                            <li class="answer-item">3- السعي بين الصفا والمروة</li>
+                            <li class="answer-item">4- الحلق أو التقصير</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">31- اذكر شروط العمل بالعرف والعادات؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- أن تكون العادة شائعة ومنتشرة</li>
+                            <li class="answer-item">2- ألا تعارض نصاً في كتاب الله تعالى أو في سنة نبيه</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">32- اذكر مقاصد الشريعة الخمسة؟ (الكليات الخمس) بالترتيب</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الدين</li>
+                            <li class="answer-item">2- النفس</li>
+                            <li class="answer-item">3- العرض</li>
+                            <li class="answer-item">4- العقل</li>
+                            <li class="answer-item">5- المال</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">33- اذكر ثلاثاً من صور عقوق الوالدين؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- التضجر منهما</li>
+                            <li class="answer-item">2- مقاطعة حديثهما</li>
+                            <li class="answer-item">3- التأفف منهما</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">34- اذكر أنواع الزور؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الزور في القول</li>
+                            <li class="answer-item">2- الزور في الفعل</li>
+                            <li class="answer-item">3- الزور في الشهادة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">35- اذكر آثار قول الزور في الفرد؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- فقدان الثقة بالنفس</li>
+                            <li class="answer-item">2- اكتساب المال بطرق غير مشروعة</li>
+                            <li class="answer-item">3- فساد الضمير</li>
+                            <li class="answer-item">4- ظلم النفس</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">36- اذكر آثار قول الزور في المجتمع؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- ضياع الأمانة والحقوق</li>
+                            <li class="answer-item">2- تفكك الروابط الاجتماعية</li>
+                            <li class="answer-item">3- انتشار الظلم</li>
+                            <li class="answer-item">4- انعدام الثقة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">37- اذكر الأسباب المؤدية إلى الزور</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- ضعف الإيمان</li>
+                            <li class="answer-item">2- عدم تقدير الذات</li>
+                            <li class="answer-item">3- الطمع والأثرة (الأنانية)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">38- اذكر طرق معالجة قول الزور وشهادته؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- تزكية النفس والشعور بمراقبة الله</li>
+                            <li class="answer-item">2- تنمية الوازع الخلقي</li>
+                            <li class="answer-item">3- تقوى الله تعالى</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">39- اذكر أقسام المصالح؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- المصالح المعتبرة</li>
+                            <li class="answer-item">2- المصالح الملغاة</li>
+                            <li class="answer-item">3- المصالح المرسلة (بترتيب)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">40- اذكر أقسام المصالح المعتبرة؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الضروريات</li>
+                            <li class="answer-item">2- الحاجيات</li>
+                            <li class="answer-item">3- التحسينيات</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">41- اذكر شروط العمل بالمصالح المرسلة؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- عدم معارضة دليل من المصادر الأصلية</li>
+                            <li class="answer-item">2- أن تحقق النفع العام وليس الفردي</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">42- اذكر السبل والطرق ليسود الأمن والأمان في المجتمع؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- طاعة الله ورسوله واحترام القوانين وتطبيقها</li>
+                            <li class="answer-item">2- التزام الأخلاق الكريمة</li>
+                            <li class="answer-item">3- تقديم المصلحة العامة على المصلحة الخاصة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">43- اذكر مخاطر عادة الأخذ بالثأر على الفرد والمجتمع</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الفرد: التقليد الأعمى - الاضطراب - القلق</li>
+                            <li class="answer-item">2- المجتمع: انتشار الظلم - فقدان الأمن والأمان</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">44- اذكر حالات حل الرابطة الزوجية بين الزوجين؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الفراق بإرادة الزوج: وهو حل رابطة الزواج بألفاظ الطلاق</li>
+                            <li class="answer-item">2- التفريق القضائي: وهو التفريق الذي يوقعه القاضي لأسباب تستحيل معها الحياة الزوجية مثل الإضرار أو غياب الزوج</li>
+                            <li class="answer-item">3- الفراق بإرادة الزوجين (المخالعة الرضائية): وهي فراق بعوض بناء على طلب الزوجة</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">45- اذكر خطوات اتقاء الطلاق؟ (مهم بالترتيب)</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- حسن الاختيار</li>
+                            <li class="answer-item">2- حسن العشرة</li>
+                            <li class="answer-item">3- الموعظة</li>
+                            <li class="answer-item">4- الهجر</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">46- اذكر أنواع الطلاق؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- الطلاق الرجعي</li>
+                            <li class="answer-item">2- الطلاق البائن بينونة صغرى</li>
+                            <li class="answer-item">3- الطلاق البائن بينونة كبرى</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">47- اذكر شروط وقوع الطلاق؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- أن يكون الزوج مختاراً غير مكره</li>
+                            <li class="answer-item">2- أن يعي الزوج ما يصدر عنه فلا يقع طلاق المجنون</li>
+                            <li class="answer-item">3- أن يقع الطلاق بلفظه الصريح أو الكنائي إذا قصد به الطلاق</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">48- اذكر أنواع الطلاق وآثاره؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- طلاق رجعي: عندما يطلق الزوج زوجته للمرة الأولى أو الثانية ويحق له أن يرجعها ما دامت في العدة بلا عقد جديد ولا مهر جديد</li>
+                            <li class="answer-item">2- البائن بينونة صغرى: ويكون في حالتين:
+                                <ul class="answer-list">
+                                    <li class="answer-item">أ- إذا طلق الزوج زوجته طلاقاً رجعياً وانقضت عدتها ولم يرجعها</li>
+                                    <li class="answer-item">ب- الطلاق قبل الدخول</li>
+                                </ul>
+                                وفي البنونة الصغرى تنتهي الزوجية ولا تعود إلا برضاها وبعقد وبمهر جديدين
+                            </li>
+                            <li class="answer-item">3- البائن بينونة كبرى: وهو أن يستكمل الزوج الطلقات الثلاث فلا تحل له حتى تتزوج بزوج آخر على سبيل الديمومة ويطلقها الثاني بإرادته وتنقضي عدتها فللأول أن يتزوجها بعقد ومهر جديدين</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="question-item">
+                        <div class="question-text">49- اذكر أنواع العدة ومقاديرها؟</div>
+                        <ul class="answer-list">
+                            <li class="answer-item">1- عدة الطلاق:
+                                <ul class="answer-list">
+                                    <li class="answer-item">أ- إذا كانت المطلقة ليست هرمة عدتها ثلاث حيضات</li>
+                                    <li class="answer-item">ب- إذا كانت المطلقة يائسة هرمة أو لا تحيض عدتها ثلاث أشهر هجرية</li>
+                                    <li class="answer-item">ت- إذا كانت المطلقة حاملاً فعدتها بوضع الحمل</li>
+                                    <li class="answer-item">ث- إذا طلقت المرأة قبل الدخول فهذه لا عدة عليها</li>
+                                </ul>
+                            </li>
+                            <li class="answer-item">2- عدة الوفاة: تحصل بسبب وفاة زوجها ومقدارها:
+                                <ul class="answer-list">
+                                    <li class="answer-item">أ- مات عنها زوجها وهي غير حامل سواء تحيض أو لا تحيض فعدتها أربعة أشهر وعشرة أيام هجرية</li>
+                                    <li class="answer-item">ب- مات عنها زوجها قبل الدخول عدتها أربعة أشهر وعشرة أيام</li>
+                                    <li class="answer-item">ت- مات زوجها وهي حامل عدتها تنتهي عند وضع الحمل</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            
+            <a href="#" class="nav-btn">
+                الدرس التالي <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // منع menu context (النقر بزر الماوس الأيمن)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع الضغط الطويل
+        document.addEventListener('mousedown', function(e) {
+            if (e.button === 0) { // زر الماوس الأيسر فقط
+                e.preventDefault();
+            }
+        });
+        
+        // منع التحديد عبر اللمس (لأجهزة اللمس)
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع التحديد عبر السحب
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // منع اختصار النسخ Ctrl+C
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.keyCode === 67) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
