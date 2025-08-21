@@ -351,12 +351,12 @@ body {
 
 .option.correct {
     border-color: var(--easy);
-    background: rgba(46, 196, 182, 0.1);
+    background: rgba(46, 196, 182, 0.3);
 }
 
 .option.incorrect {
     border-color: var(--hard);
-    background: rgba(231, 29, 54, 0.1);
+    background: rgba(231, 29, 54, 0.3);
 }
 
 .option input {
@@ -1287,28 +1287,293 @@ body {
         return realName;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // طلب إدخال الاسم إذا لم يكن موجوداً
-    async function requestRealName() {
-        const { value: realName } = await Swal.fire({
-            title: 'أدخل اسمك الحقيقي',
-            input: 'text',
-            inputLabel: 'الاسم الكامل (بالعربية أو الإنجليزية)',
-            inputPlaceholder: 'أدخل اسمك هنا...',
-            allowOutsideClick: false,
-            inputValidator: (value) => {
-                if (!value) {
-                    return 'يجب إدخال اسم!';
-                }
+async function requestRealName() {
+    const { value: realName } = await Swal.fire({
+        title: '<span style="color: #840B62; font-weight: 700; font-size: 1.8rem; font-family: \'Tajawal\', sans-serif;">أدخل اسمك الحقيقي</span>',
+        input: 'text',
+        inputLabel: 'الاسم الكامل (بالعربية أو الإنجليزية)',
+        inputPlaceholder: 'أدخل اسمك هنا...',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showCloseButton: false,
+        customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+            input: 'custom-swal-input',
+            validationMessage: 'custom-swal-validation',
+            confirmButton: 'custom-swal-confirm'
+        },
+        inputValidator: (value) => {
+            if (!value) {
+                return 'يجب إدخال اسم!';
+            }
+            if (value.length < 5) {
+                return 'ادخل اسمك الحقيقي كاملاً';
+                            }
+            // تحقق إضافي من أن الاسم يحتوي على حروف فقط (باستثناء المسافات)
+            const nameRegex = /^[\p{L}\s]+$/u;
+            if (!nameRegex.test(value)) {
+                return 'يجب أن يحتوي الاسم على أحرف فقط';
+            }
+        },
+        inputAttributes: {
+            autocapitalize: 'words',
+            maxlength: 30,
+            autocomplete: 'name',
+            style: 'text-align: right; font-family: Tajawal, sans-serif; padding: 15px; border-radius: 10px;'
+        },
+        confirmButtonText: '<span style="font-family: \'Tajawal\', sans-serif; font-weight: 700;">تأكيد</span>',
+        showCancelButton: false,
+        focusConfirm: false,
+        preConfirm: (value) => {
+            if (!value) {
+                Swal.showValidationMessage('يجب إدخال اسم!');
+                return false;
+            }
+            if (value.length < 2) {
+                Swal.showValidationMessage('الاسم يجب أن يكون أكثر من حرف واحد');
+                return false;
+            }
+            const nameRegex = /^[\p{L}\s]+$/u;
+            if (!nameRegex.test(value)) {
+                Swal.showValidationMessage('يجب أن يحتوي الاسم على أحرف فقط');
+                return false;
+            }
+            return value;
+        },
+        width: '500px',
+        background: '#fff',
+        padding: '2.5rem 2rem',
+        backdrop: 'rgba(132, 11, 98, 0.6)',
+        showClass: {
+            popup: 'swal2-show-anim'
+        },
+        hideClass: {
+            popup: 'swal2-hide-anim'
+        }
+    });
+    
+    if (realName) {
+        localStorage.setItem('quiz_real_name', realName);
+        
+        // إظهار رسالة نجاح
+        await Swal.fire({
+            title: '<span style="color: #840B62; font-weight: 700; font-size: 1.5rem; font-family: \'Tajawal\', sans-serif;">تم الحفظ بنجاح!</span>',
+            text: `تم حفظ اسمك "${realName}" بنجاح`,
+            icon: 'success',
+            confirmButtonText: '<span style="font-family: \'Tajawal\', sans-serif; font-weight: 700;">تم</span>',
+            customClass: {
+                popup: 'custom-swal-popup',
+                title: 'custom-swal-title',
+                confirmButton: 'custom-swal-confirm'
             }
         });
         
-        if (realName) {
-            localStorage.setItem('quiz_real_name', realName);
-            return realName;
-        }
-        
-        return null;
+        return realName;
     }
+    
+    return null;
+}
+
+// إضافة الأنماط ديناميكياً
+const style = document.createElement('style');
+style.textContent = `
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+    
+    .custom-swal-popup {
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(132, 11, 98, 0.3);
+        font-family: 'Tajawal', sans-serif;
+    }
+    
+    .custom-swal-title {
+        font-family: 'Tajawal', sans-serif;
+        line-height: 1.4;
+        padding: 0 0 15px 0;
+    }
+    
+    .custom-swal-input {
+        border: 2px solid #e9e9e9;
+        border-radius: 10px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+        text-align: right;
+        font-family: 'Tajawal', sans-serif;
+    }
+    
+    .custom-swal-input:focus {
+        border-color: #840B62;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(132, 11, 98, 0.2);
+    }
+    
+    .custom-swal-validation {
+        font-family: 'Tajawal', sans-serif;
+        font-size: 14px;
+        color: #e74c3c;
+    }
+    
+    .custom-swal-confirm {
+        background: linear-gradient(to right, #840B62, #AD5389) !important;
+        border: none !important;
+        border-radius: 30px !important;
+        padding: 12px 30px !important;
+        font-family: 'Tajawal', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        box-shadow: 0 4px 15px rgba(132, 11, 98, 0.3) !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .custom-swal-confirm:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(132, 11, 98, 0.4) !important;
+    }
+    
+    .swal2-styled:focus {
+        box-shadow: 0 0 0 3px rgba(132, 11, 98, 0.3) !important;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .swal2-show-anim {
+        animation: fadeIn 0.3s ease-out;
+    }
+    
+    @keyframes fadeOut {
+        from { opacity: 1; transform: translateY(0); }
+        to { opacity: 0; transform: translateY(-20px); }
+    }
+    
+    .swal2-hide-anim {
+        animation: fadeOut 0.2s ease-in;
+    }
+`;
+document.head.appendChild(style);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // ==============================================
     // قسم الحصول على مسار الاختبار
